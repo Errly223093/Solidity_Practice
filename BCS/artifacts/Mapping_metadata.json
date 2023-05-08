@@ -1,0 +1,83 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "getHeight",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_h",
+						"type": "uint256"
+					}
+				],
+				"name": "setHeight",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"BCS/230508_02_Address.sol": "Mapping"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"BCS/230508_02_Address.sol": {
+			"keccak256": "0x2cdf8318b90ef4115e04e2bc1bf1bcdf80ac30999d9ba9d3dd464a9076da8f09",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://2e964be153ccae7aef9e438aa62f56e669aa1ca0e3f2f2b6c4b9d05c12e5a549",
+				"dweb:/ipfs/QmZ1PHKTnGDdbEhc1GsHgir6pTSmYGBm6DKjGF37kRTwwv"
+			]
+		}
+	},
+	"version": 1
+}
