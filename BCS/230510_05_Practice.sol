@@ -109,7 +109,7 @@ contract IF{
     }
 }
 
-contract ENUM { // enum 변수명 . 변수1,2,3,4
+contract ENUM { // enum 변수명 . 변수1,2,3,4 
         enum Food { 
             chicken, // 0 으로 저장
             suish, // 1
