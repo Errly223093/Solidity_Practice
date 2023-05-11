@@ -206,4 +206,49 @@ contract ENUM { // enum 변수명 . 변수1,2,3,4
         function get1() public view returns(uint) {
             return x;
         }
-}      
+} 
+
+contract review2 {
+//숫자형 변수 a, 문자형 변수 b, bytes2형 변수 c를 담은 구조체 D를 선언하세요.
+   
+//D형 변수 dd를 선언하세요.
+
+//dd에 값을 부여하는 setDD함수를 구현하세요.
+
+//D형 변수들이 들어가는 array Ds를 선언하세요.
+
+//Ds에 새로운 D형 변수를 넣는 pushD 함수를 구현하세요.
+
+}
+
+contract review3 {
+//숫자형 변수 number, 문자형 변수 name, bytes2형 변수 password 그리고 member라는 구조체를 선언하세요.
+   
+//member형 변수 Michael을 선언하세요.
+
+//Michael에 값을 부여하는 setM 함수를 구현하세요.
+
+//member형 변수들이 들어가는 members를 선언하세요.
+
+//members에 새로운 member 변수를 넣는 pushMember 함수를 구현하세요
+
+}
+
+contract review4 {
+//숫자형 변수 a, 문자형 변수 b, bytes2형 변수 c를 담은 구조체 D를 선언하세요.
+   
+//D형 변수 dd를 선언하세요.
+
+//dd에 값을 부여하는 setDD함수를 구현하세요.
+
+//dd의 값을 반환하는 getDD 함수를 구현하세요(추가)
+
+//D형 변수들이 들어가는 array Ds를 선언하세요.
+
+//Ds에 새로운 D형 변수를 넣는 pushD 함수를 구현하세요.
+
+//(추가) 이미 형성된 dd라는 변수를 가져와서 푸쉬도 가능.
+
+//Ds array의 n번째 요소를 반환받는 getN이라는 함수를 구현하세요.(추가)
+
+}
