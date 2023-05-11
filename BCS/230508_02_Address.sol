@@ -28,7 +28,7 @@ contract Mapping {
     mapping(uint => string) b;
     mapping(string => address) c;
 
-    mapping(uint => mapping(string => uint)) score; // 1 반의 john 의 점수를 가져올때 이중매핑.
+    mapping(uint => mapping(string => uint)) score; // 1 반의 john 의 점수를 가져올때 이중매핑
 
     // 이름을 검색하면 그 아이의 키를 반환받는 contract 를 구현하고 싶다.1
     mapping(string => uint) height;

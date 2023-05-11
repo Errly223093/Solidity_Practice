@@ -13,7 +13,7 @@ contract map {
 	height[_name] = _hgt;
     }
 
-    function getstudent(string memory _name) public view returns(uint) {
+    function getstudent(string memory _name) public view returns (uint) {
 	return height[_name];
     }
 
