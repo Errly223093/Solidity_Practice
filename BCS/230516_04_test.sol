@@ -77,10 +77,11 @@ struct user {
 
 // * 점수를 돈으로 바꾸는 기능 - 10점마다 0.1eth로 환전
     function scoreToMoney(uint _userNum) public payable {
+        require(users[_userNum].score < 10,"your have to get 10 point first !");
         for(uint i=10; i < users[_userNum].score; i = i+10) {
             if(users[_userNum].score > i){
             }
-        users[_userNum].score - i-10;
+        users[_userNum].score - (i-10);
         payable(users[_userNum].wallet).transfer((i-10) * 0.01 ether);
         }
     }
