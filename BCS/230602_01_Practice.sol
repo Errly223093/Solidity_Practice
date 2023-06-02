@@ -28,7 +28,7 @@ pragma solidity 0.8.18;
 // 유저는 10점 단위로 점수를 0.1ETH만큼 변환시킬 수 있습니다.
 // 예) A : 12점 => A : 2점, 0.1ETH 수령 // B : 9점 => 1점 더 필요 // C : 25점 => 5점, 0.2ETH 수령
 
-contract test {
+contract test { 
 
 receive() external payable{}
 
