@@ -1,6 +1,30 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.18;
 
+/*
+struct , mapping 상태변수를 접근하는 방법(truffle console)
+
+Struct
+hash => web3.utils.soliditySha3({type: "uint", value : slot넘버})
+
+Struct 의 첫 번째 변수 => web3.eth.getStorageAt(addr, hash, console.log)
+
+Struct 의 두 번째 변수 => web3.eth.getStorageAt(addr, hash+1, console.log)
+
+Struct 의 세 번째 변수 => web3.eth.getStorageAt(addr, hash+2, console.log) ...
+
+mapping
+hash => web3.utils.soliditySha3({type: "uint", value : mapping key}, {type: "uint", value : slot넘버})
+
+mapping struct 의 첫 번째 변수 => web3.eth.getStorageAt(addr, hash, console.log)
+
+mapping struct 의 두 번째 변수 => web3.eth.getStorageAt(addr, hash +1, console.log)
+
+mapping struct 의 세 번째 변수 => web3.eth.getStorageAt(addr, hash +2, console.log)
+
+자세한 내용은 https://velog.io/@lmjgmm/Solidity-Accessing-Private-Data
+*/
+
 contract accountDB {
     // slot 0
     uint public count = 123; // 32 bytes (2**8) * 32
@@ -21,9 +45,7 @@ contract accountDB {
 
     /* 
     slot 6 - 배열의 길이
-    슬롯은 keccak256(6) 으로 시작함
-    슬롯에 배열의 요소가 저장됨 어디에? => keccak256(slot 넘버) + (인덱스 + 요소의 크기)
-    슬롯 6 | 요소 크기 2 = 1(uint) + 1(bytes32)
+    슬롯에 배열의 요소가 저장됨 어디에? => keccak256(slot 넘버)
     */
     struct User {
         uint id;
@@ -33,7 +55,7 @@ contract accountDB {
 
     /* 
     slot 7
-    슬롯 7 맵핑의 슬롯 => keccak256(mapping key, 7)
+    슬롯 7 맵핑의 슬롯 => keccak256(mapping key, slot 넘버)
     */
     mapping(uint => User) private idToUser;
 
