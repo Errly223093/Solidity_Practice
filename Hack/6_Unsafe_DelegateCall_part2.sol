@@ -6,6 +6,8 @@ pragma solidity 0.8.18;
     2. HackMe 의 lib , owner 상태변수 확인
     3. Attack 의 attack 함수의 인자로 정수를 넣고 실행(아무거나)
     4. HackMe 의 owner 상태변수 확인. 원하는 owner 로 바뀜.
+
+    *** delegate call 에서는 슬롯이 바뀌거나 생성될 수 없음. ***
 */
 
 contract Lib {
