@@ -130,14 +130,13 @@ contract MultiSignatureWallet {
     }
 
     //   gas   tx   execute ------ 가스비 비교(지역변수X)
-    // 105763 91967 70763 
     // 86123 74889 53685
     function execution(uint _txId) 
         external
         onlyOwner
         txExist(_txId)
     {
-        // 지역변수 사용없이는 가스비 소모가 심함.
+        // 지역변수 사용X, 가스비 소모가 가장 큼
         require(!transactions[_txId].executed, "Already executed.");
         require(numberOfConfirmRequired <= transactions[_txId].confirmation,"Not Approved.");
         
@@ -150,14 +149,13 @@ contract MultiSignatureWallet {
     }
 
     //   gas   tx   execute ------ 가스비 비교(지역변수O storage)
-    // 104717 91058 69866
     // 85066 73970 52766
     function execution_2(uint _txId) 
         external
         onlyOwner
         txExist(_txId)
     {
-        // storage 를 사용한 지역변수는 가스비 소모가 심함.
+        // storage 사용 시 가스비가 제일 효율적임
         Transaction storage transaction = transactions[_txId];
         require(!transaction.executed, "Already executed.");
         require(numberOfConfirmRequired <= transaction.confirmation,"Not Approved.");
@@ -171,20 +169,19 @@ contract MultiSignatureWallet {
     }
 
     //   gas  tx  execute ------ 가스비 비교(지역변수O memory)
-    // 62611 54444 33240
-    // 62611 54444 33240
+    // 85980 74765 53561
     function execution_3(uint _txId) 
         external
         onlyOwner
         txExist(_txId)
     {
-        // memory 형태의 지역변수 사용으로 가스비 절약
+        // memory 형태의 지역변수 사용으로는 상태변수 변경이 불가
         Transaction memory transaction = transactions[_txId];
         require(!transaction.executed, "Already executed.");
         require(numberOfConfirmRequired <= transaction.confirmation,"Not Approved.");
 
-        // re-entry 할 수 없도록 상태변수 변경 후 call
-        transaction.executed = true;
+        // memory 를 사용하기에 이렇게 변경, 가스비도 많이 소모 됨
+        transactions[_txId].executed = true;
         (bool success, ) = transaction.to.call
         {value : transaction.value}(transaction.data);
         require(success, "Failed to transact.");
@@ -197,6 +194,7 @@ contract MultiSignatureWallet {
     }
 }
 
+// 테스트 컨트랙트
 contract TestContract {
     uint public i;
 
